@@ -1,0 +1,20 @@
+{
+  "name": "td_server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "test"
+  },
+  "keywords": [
+    "test",
+    "case"
+  ],
+  "author": "Ivan",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.4",
+    "swagger-ui-express": "^4.0.2",
+    "yamljs": "^0.3.0"
+  }
+}
