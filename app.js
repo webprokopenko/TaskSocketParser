@@ -7,10 +7,18 @@ const OnlineAssets = require('./lib/coincap/getOnlineAssets');
 const port = 8000;
 io.listen(port);
 
+const assetsStream = new AssetsStream();
+
+assetsStream.on('readable', ()=>{
+    let  chunk;
+    while((chunk = assetsStream.read()) !==null ){
+        console.log(`Chunk received: ${chunk.toString()}`)
+    }
+})
+
 io.on('connection', async(client) => {
   const onlineAssets = new OnlineAssets();
   client.emit('updateRates', await onlineAssets.getTopAssets());
-
     setInterval(async() => {
       client.emit('updateRates', await onlineAssets.getTopAssets());
     }, 30000);
